@@ -13,15 +13,5 @@ $ npm install --global tui-example
 ## CLI
 
 ```
-$ tui-example --help
-
-  Usage
-    $ tui-example
-
-  Options
-    --name  Your name
-
-  Examples
-    $ tui-example --name=Jane
-    Hello, Jane
+npm start
 ```

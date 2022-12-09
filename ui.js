@@ -1,10 +1,10 @@
-const React  = require('react');
-const { h, Color, Box, Text } = require('ink');
+import React, {useState, useEffect} from 'react';
+import { Box, Text } from 'ink';
+import { promisify } from 'node:util';
 
-const {useState, useEffect} = React;
+import { exec as execCb } from "node:child_process";
 
-const util = require('node:util');
-const exec = util.promisify(require('node:child_process').exec);
+const exec = promisify(execCb);
 
 async function cowSay(txt) {
   const { stdout, stderr } = await exec(`cowsay ${txt}`);
@@ -38,7 +38,7 @@ const Window = ({ title, children }) => (
 );
 
 
-function App() {
+export default function App() {
   const [window1, setWindow1] = useState("Waiting cowsay...");
   useEffect(() => {
     async function run() {
@@ -77,4 +77,3 @@ function App() {
   </>
 }
 
-module.exports = App;
